@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:Sssaver.ViewModels"
+    Title="$ssaver"
+    x:Class="Sssaver.Views.HomePage"
+    BackgroundColor="{StaticResource White}"
+    >
+    <ContentPage.BindingContext>
+        <vm:HomeViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <ScrollView >
+            <Grid Padding="16" RowSpacing="8">
+
+                <Grid Grid.Row="0"
+                      BackgroundColor="{StaticResource LightGreen}">
+                    <StackLayout>
+
+                        <Label Text="Progress" FontSize="Medium" />
+
+                        <Label Text="{Binding SavingsPlan.Name}" FontSize="Large" />
+
+                        <Label Text="{Binding SavingsPlan.Days}" FontSize="Large" />
+
+
+                        <Label Text="{Binding SavingsPlan.CurrentSavingsAmount}" FontSize="Medium" />
+
+                        <Label Text="{Binding SavingsPlan.PercentSavingsCompleted}" FontSize="Medium" />
+
+
+                        <Button Clicked="Button_Clicked" Text="Save $10"/>
+
+                    </StackLayout>
+
+                </Grid>
+
+                <Grid Grid.Row="1"
+                      BackgroundColor="{StaticResource Secondary}">
+
+                    <Label Text="Today's Challenge" FontSize="Medium" />
+
+
+                </Grid>
+
+                <Grid Grid.Row="2"
+                      BackgroundColor="{StaticResource Tertiary}">
+
+                    <Label Text="Goal" FontSize="Medium" />
+
+
+                </Grid>
+
+                <Grid Grid.Row="3"
+                      BackgroundColor="{StaticResource White}">
+
+                    <Label Text="History" FontSize="Medium" />
+
+
+                </Grid>
+
+            </Grid>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>
