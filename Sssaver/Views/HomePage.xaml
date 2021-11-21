@@ -6,9 +6,6 @@
     x:Class="Sssaver.Views.HomePage"
     BackgroundColor="{StaticResource White}"
     >
-    <ContentPage.BindingContext>
-        <vm:HomeViewModel />
-    </ContentPage.BindingContext>
 
     <ContentPage.Content>
         <ScrollView >
@@ -29,8 +26,6 @@
 
                         <Label Text="{Binding SavingsPlan.PercentSavingsCompleted}" FontSize="Medium" />
 
-
-                        <Button Clicked="Button_Clicked" Text="Save $10"/>
 
                     </StackLayout>
 
