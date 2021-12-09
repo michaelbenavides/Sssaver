@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Class="Sssaver.App">
     <!--
         Define global resources and styles here, that apply to all pages in your app.
@@ -12,7 +13,14 @@
             <Color x:Key="Secondary">#02735E</Color>
             <Color x:Key="Tertiary">#03A63C</Color>
             <Color x:Key="LightGreen">#AEF2C6</Color>
-            <Color x:Key="White">#F2f2f2</Color>
+            <Color x:Key="White">#F2F2F2</Color>
+            <Color x:Key="DarkerWhite">#F4F4F4</Color>
+            <Color x:Key="Black">#121212</Color>
+            <Color x:Key="DarkGray">#424242</Color>
+
+            <Style x:Key="CardBackground" TargetType="pancake:PancakeView">
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource DarkGray}}" />
+            </Style>
 
             <Style TargetType="Button">
                 <Setter Property="TextColor" Value="{StaticResource White}"></Setter>

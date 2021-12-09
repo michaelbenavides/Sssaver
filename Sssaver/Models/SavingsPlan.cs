@@ -35,11 +35,27 @@ namespace Sssaver.Models
             }
         }
 
+        public string SavingsFormat
+        {
+            get
+            {
+                return string.Format("${0}/${1}", currentSavingsAmount, TotalSavingsAmount);
+            }
+        }
+
         public double PercentSavingsCompleted
         {
             get
             {
                 return (double)CurrentSavingsAmount / (double)TotalSavingsAmount;
+            }
+        }
+
+        public double PercentFormat
+        {
+            get
+            {
+                return (double)PercentSavingsCompleted * 100.00;
             }
         }
 

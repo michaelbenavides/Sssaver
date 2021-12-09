@@ -1,60 +1,186 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:Sssaver.ViewModels"
-    Title="$ssaver"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:vm="clr-namespace:Sssaver.ViewModels" 
+    x:DataType="vm:HomeViewModel"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     x:Class="Sssaver.Views.HomePage"
-    BackgroundColor="{StaticResource White}"
+    Title="SSSaver"
+    BackgroundColor="{StaticResource Black}"
     >
+
+    <Shell.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Image Source="sssaversnek.png" 
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="Start"/>
+            <Label Text="SSSaver"
+                   HorizontalOptions="StartAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   FontSize="Large"
+                   TextColor="{StaticResource White}"/>
+        </StackLayout>
+    </Shell.TitleView>
 
     <ContentPage.Content>
         <ScrollView >
             <Grid Padding="16" RowSpacing="8">
 
-                <Grid Grid.Row="0"
-                      BackgroundColor="{StaticResource LightGreen}">
-                    <StackLayout>
+                <Grid Grid.Row="0">
+                    <pancake:PancakeView Padding="0"
+                                         CornerRadius="16"
+                                         IsClippedToBounds="True"
+                                         WidthRequest="200">
+                        <StackLayout BackgroundColor="{StaticResource DarkGray}"
+                                     Padding="10">
 
-                        <Label Text="Progress" FontSize="Medium" />
+                            <Label Text="Progress" FontSize="Medium" TextColor="{StaticResource White}"/>
 
-                        <Label Text="{Binding SavingsPlan.Name}" FontSize="Large" />
+                            <Grid Padding="10, 0">
+                                <Label Text="{Binding SavingsPlan.Name, StringFormat='Plan - {0}'}" 
+                                       FontSize="Large" 
+                                       TextColor="{StaticResource White}" 
+                                       HorizontalOptions="Start"/>
+                                <Label Text="{Binding SavingsPlan.Days, StringFormat='Day {0}'}" 
+                                       FontSize="Large" 
+                                       TextColor="{StaticResource White}" 
+                                       HorizontalOptions="End"/>
+                            </Grid>
 
-                        <Label Text="{Binding SavingsPlan.Days}" FontSize="Large" />
+                            <Grid HorizontalOptions="Center"
+                                  WidthRequest="200"
+                                  Margin="0,0,0,0">
+                                <Image Source="sssaversnek.jpg" />
+                            </Grid>
+
+                            <Label Text="{Binding SavingsPlan.SavingsFormat}" 
+                                   FontSize="Large" 
+                                   TextColor="{StaticResource White}" 
+                                   HorizontalOptions="Center" 
+                                   Padding="0,0,0,10"/>
+
+                            <Grid Padding="15, 0">
+                                <Frame HasShadow="True"
+                                       HeightRequest="32" 
+                                       CornerRadius="15" 
+                                       HorizontalOptions="Fill" 
+                                       Padding="0" 
+                                       BorderColor="{StaticResource White}"
+                                       BackgroundColor="{StaticResource DarkGray}" 
+                                       IsClippedToBounds="True">
+                                    <AbsoluteLayout>
+                                        <ContentView AbsoluteLayout.LayoutFlags="All" 
+                                                     AbsoluteLayout.LayoutBounds="0, 0, .21, 1.1"
+                                                     BackgroundColor="{StaticResource Tertiary}">
+                                            <Label Text="{Binding SavingsPlan.PercentFormat, StringFormat='%{0:0.00}'}" 
+                                                   FontSize="Small" 
+                                                   HorizontalOptions="Center" 
+                                                   VerticalOptions="Center" 
+                                                   TextColor="White" 
+                                                   FontAttributes="Bold" />
+                                        </ContentView>
+                                    </AbsoluteLayout>
+                                </Frame>
+                            </Grid>
+
+                            <Grid Padding="5">
+                                <Label Text="{Binding SavingsPlan.StartDate, StringFormat='{0:MMMM d}'}" 
+                                       HorizontalOptions="Start" 
+                                       TextColor="White"/>
+                                <Label Text="{Binding SavingsPlan.EndDate, StringFormat='{0:MMMM d}'}" 
+                                       HorizontalOptions="End" 
+                                       TextColor="White"/>
+                            </Grid>
 
 
-                        <Label Text="{Binding SavingsPlan.CurrentSavingsAmount}" FontSize="Medium" />
-
-                        <Label Text="{Binding SavingsPlan.PercentSavingsCompleted}" FontSize="Medium" />
-
-
-                    </StackLayout>
+                        </StackLayout>
+                    </pancake:PancakeView>
 
                 </Grid>
 
-                <Grid Grid.Row="1"
-                      BackgroundColor="{StaticResource Secondary}">
-
-                    <Label Text="Today's Challenge" FontSize="Medium" />
-
-
+                <Grid Grid.Row="1">
+                    <pancake:PancakeView Padding="0"
+                                         CornerRadius="16"
+                                         IsClippedToBounds="True"
+                                         WidthRequest="200">
+                        <StackLayout BackgroundColor="{StaticResource DarkGray}"
+                                     Padding="10">
+                            <Label Text="Today's Challenge" 
+                                   FontSize="Medium" 
+                                   TextColor="{StaticResource White}"/>
+                            <Label Text="Today's Challenge is $150"
+                                   FontSize="Medium"
+                                   HorizontalOptions="Center" 
+                                   TextColor="White"
+                                   Padding="0, 40, 0, 10"/>
+                            <Grid VerticalOptions="StartAndExpand">
+                                <Button x:Name="TodaysChallenge"
+                                    Text="Accept Today's Challenge?"
+                                    FontSize="Large"
+                                    CornerRadius="25"
+                                    BorderColor="{StaticResource White}"
+                                    BorderWidth="1"
+                                    Padding="0,40"
+                                    Margin="20" 
+                                    BackgroundColor="{StaticResource Tertiary}"/>
+                            <!-- 
+                            x:name for the button in order to reference it later. 
+                            clicked feature add the event listener. 
+                            -->
+                            </Grid>
+                        </StackLayout>
+                    </pancake:PancakeView>
                 </Grid>
 
-                <Grid Grid.Row="2"
-                      BackgroundColor="{StaticResource Tertiary}">
-
-                    <Label Text="Goal" FontSize="Medium" />
-
-
+                <Grid Grid.Row="2">
+                    <pancake:PancakeView Padding="0"
+                                     CornerRadius="16"
+                                     IsClippedToBounds="True"
+                                     WidthRequest="200">
+                        <StackLayout BackgroundColor="{StaticResource DarkGray}"
+                                     Padding="10">
+                            <Label Text="Goal" 
+                                   FontSize="Medium" 
+                                   TextColor="{StaticResource White}" />
+                            <Grid HorizontalOptions="Center"
+                                  Margin="5, 20, 5, 0">
+                                <Image Source="{Binding SavingsPlan.GoalImage}"/>
+                            </Grid>
+                            <Label Text="Remember the Goal:" 
+                                   FontSize="Medium" 
+                                   TextColor="{StaticResource White}" 
+                                   HorizontalOptions="Center" Margin="0,10,0,5"/>
+                            <Label Text="2017 Toyota Camry SE" 
+                                   FontSize="Small" 
+                                   TextColor="{StaticResource White}" 
+                                   HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </pancake:PancakeView>
                 </Grid>
 
-                <Grid Grid.Row="3"
-                      BackgroundColor="{StaticResource White}">
-
-                    <Label Text="History" FontSize="Medium" />
-
-
+                <Grid Grid.Row="3">
+                    <pancake:PancakeView Padding="0"
+                                     CornerRadius="16"
+                                     IsClippedToBounds="True"
+                                     WidthRequest="200">
+                        <StackLayout BackgroundColor="{StaticResource DarkGray}"
+                                     Padding="10">
+                            <Label Text="History" FontSize="Medium" TextColor="{StaticResource White}" />
+                            <Label Text="December 1st    -  $10"  FontSize="Small" TextColor="{StaticResource White}" HorizontalOptions="Start" Margin="10,5,0,0"/>
+                            <Label Text="December 2nd   -  $20"  FontSize="Small" TextColor="{StaticResource White}" HorizontalOptions="Start" Margin="10,5,0,0"/>
+                            <Label Text="December 3rd    -  $30" FontSize="Small" TextColor="{StaticResource White}" HorizontalOptions="Start" Margin="10,5,0,0"/>
+                            <Label Text="December 4th    -  $40" FontSize="Small" TextColor="{StaticResource White}" HorizontalOptions="Start" Margin="10,5,0,0"/>
+                            <Label Text="December 5th    -  $50" FontSize="Small" TextColor="{StaticResource White}" HorizontalOptions="Start" Margin="10,5,0,0"/>
+                            <Label Text="December 6th    -  $60" FontSize="Small" TextColor="{StaticResource White}" HorizontalOptions="Start" Margin="10,5,0,0"/>
+                            <Label Text="December 7th    -  $70" FontSize="Small" TextColor="{StaticResource White}" HorizontalOptions="Start" Margin="10,5,0,0"/>
+                            <Label Text="December 8th    -  $80" FontSize="Small" TextColor="{StaticResource White}" HorizontalOptions="Start" Margin="10,5,0,0"/>
+                            <Label Text="December 9th    -  $90" FontSize="Small" TextColor="{StaticResource White}" HorizontalOptions="Start" Margin="10,5,0,0"/>
+                            <Label Text="December 10th  -  $100" FontSize="Small" TextColor="{StaticResource White}" HorizontalOptions="Start" Margin="10,5,0,0"/>
+                            <Label Text="Show More" FontSize="Small" TextColor="{StaticResource DarkerWhite}" HorizontalOptions="Center" Margin="0,10,0,0"/>
+                        </StackLayout>
+                    </pancake:PancakeView>
                 </Grid>
-
             </Grid>
         </ScrollView>
 

@@ -14,6 +14,9 @@ namespace Sssaver.Views
             InitializeComponent();
 
             BindingContext = homeViewModel = new HomeViewModel();
+            //reference the button with homeViewModel.name
+
+            //Clicked functionality
         }
 
     }

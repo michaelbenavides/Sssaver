@@ -2,7 +2,7 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:Sssaver.Views"
-       Title="Sssaver"
+       Title="SSSaver"
        x:Class="Sssaver.AppShell"
        >
 
@@ -15,15 +15,15 @@
     <Shell.Resources>
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
-                <Setter Property="Shell.ForegroundColor" Value="{StaticResource White}" />
-                <Setter Property="Shell.TitleColor" Value="{StaticResource White}" />
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource DarkGray}" />
+                <Setter Property="Shell.ForegroundColor" Value="{StaticResource Black}" />
+                <Setter Property="Shell.TitleColor" Value="{StaticResource DarkerWhite}" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
                 <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
-                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Primary}" />
-                <Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource White}"/>
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource DarkGray}" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource DarkerWhite}"/>
                 <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
-                <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource White}"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource DarkerWhite}"/>
             </Style>
             <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
             <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
@@ -31,9 +31,9 @@
     </Shell.Resources>
 
     <TabBar>
-        <ShellContent Title="Home" Icon="icon_about.png" Route="HomePage" ContentTemplate="{DataTemplate local:HomePage}" />
-        <ShellContent Title="Plans" Icon="icon_about.png" Route="PlansPage" ContentTemplate="{DataTemplate local:PlansPage}" />
-        <ShellContent Title="Profile" Icon="icon_about.png" Route="ProfilePage" ContentTemplate="{DataTemplate local:ProfilePage}" />
+        <ShellContent Title="Home" Icon="home.png" Route="HomePage" ContentTemplate="{DataTemplate local:HomePage}" />
+        <ShellContent Title="Plans" Icon="savemoney.png" Route="PlansPage" ContentTemplate="{DataTemplate local:PlansPage}" />
+        <ShellContent Title="Profile" Icon="account.png" Route="ProfilePage" ContentTemplate="{DataTemplate local:ProfilePage}" />
         <!--<ShellContent Title="Browse" Icon="icon_feed.png" ContentTemplate="{DataTemplate local:ItemsPage}" />-->
     </TabBar>
 

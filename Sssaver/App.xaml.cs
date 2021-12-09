@@ -15,6 +15,7 @@ namespace Sssaver
 
             DependencyService.Register<MockDataStore>();
             MainPage = new AppShell();
+
         }
 
         protected override void OnStart()

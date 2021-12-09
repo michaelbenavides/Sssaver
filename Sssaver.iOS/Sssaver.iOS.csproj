@@ -142,4 +142,22 @@
       <Name>Sssaver</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\savemoney.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\account.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Snek.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\toyotacamry.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sssaversnek.png" />
+  </ItemGroup>
 </Project>

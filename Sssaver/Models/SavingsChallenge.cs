@@ -13,5 +13,7 @@ namespace Sssaver.Models
             ScheduledDate = scheduledDate;
             Amount = amount;
         }
+
+        //DateTime (year month date)
     }
 }
